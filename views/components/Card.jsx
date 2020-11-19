@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const React = require("react");
 
 function Card() {
@@ -11,3 +12,18 @@ function Card() {
 }
 
 module.exports = Card;
+=======
+const React = require("react");
+
+function Card(props) {
+  return (
+    <div>
+      <h1>Card component example</h1>
+      <img src={props.image} width="100" alt="" />
+      <p>{props.text}</p>
+    </div>
+  );
+}
+
+module.exports = Card;
+>>>>>>> 2d990213a15638d409db1dfe88d9dbd5e0ef4240
