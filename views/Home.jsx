@@ -2,18 +2,24 @@ const React = require("react");
 const Layout = require("./Layout");
 const Card = require("./components/Card");
 
-function Home() {
+function Home(props) {
   return (
     <Layout title="Home Page">
       <h1>Home Page</h1>
-      <Card
-        text="smaller component example"
-        image="https://i.imgur.com/OH7dtc0.png"
-      />
-      <Card
-        text="second example of component use"
-        image="https://i.imgur.com/dHdzhWn.png"
-      />
+      <form action="/auth/signup" method="post">
+        <input name="username" type="text" placeholder="Enter your username" />
+        <br />
+        <input name="email" type="email" placeholder="Enter your email" />
+        <br />
+        <input
+          name="password"
+          type="password"
+          placeholder="Enter your password"
+        />
+        <br />
+        <button type="submit">Create account</button>
+      </form>
+      {props.errorMessage ? <p>{props.errorMessage}</p> : null}
     </Layout>
   );
 }
