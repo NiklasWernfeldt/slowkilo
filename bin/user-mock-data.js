@@ -6,7 +6,6 @@ const users = [
     posts: [],
     email: "ake@gmail.com",
     password: "dsiofksdo32",
-    allPosts: [],
   },
   {
     username: "Håkan",
@@ -15,7 +14,6 @@ const users = [
     posts: [],
     email: "hakan@gmail.com",
     password: "pwefok3425",
-    allPosts: [],
   },
   {
     username: "Peter",
@@ -24,7 +22,6 @@ const users = [
     posts: [],
     email: "peter@gmail.com",
     password: "kork42o",
-    allPosts: [],
   },
   {
     username: "Erik",
@@ -33,6 +30,6 @@ const users = [
     posts: [],
     email: "erik@gmail.com",
     password: "9i204rfwkm",
-    allPosts: [],
   },
 ];
+

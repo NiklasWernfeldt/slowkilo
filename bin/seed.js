@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const User = require("./../models/User.model");
-// const Post = require("./../models/Post.model");
+const Post = require("./../models/Post.model");
 
 const users = require("./users-mock-data");
-// const posts = require("./posts-mock-data");
+const posts = require("./posts-mock-data");
 
 const DB_NAME = "library";
 
@@ -53,5 +53,4 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-//COMMENT
-// COMMENT 2
+
