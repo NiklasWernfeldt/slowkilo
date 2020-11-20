@@ -8,7 +8,6 @@ const userSchema = new Schema({
   posts: [{ type: mongoose.SchemaTypes.ObjectId, ref: "Post" }],
   email: String,
   password: String,
-  allPosts: [{ type: mongoose.SchemaTypes.ObjectId, ref: "allPosts" }],
 });
 
 const User = mongoose.model("User", userSchema);
