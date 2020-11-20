@@ -11,7 +11,6 @@ const MongoStore = require("connect-mongo")(session);
 
 const authRouter = require("./routes/authRouter");
 const siteRouter = require("./routes/siteRouter");
-const postRouter = require("./routes/postRouter");
 
 const app = express();
 
@@ -53,7 +52,6 @@ app.use(
 );
 
 // ROUTES
-app.use("/create-post", postRouter);
 app.use("/auth", authRouter);
 app.use("/", siteRouter);
 

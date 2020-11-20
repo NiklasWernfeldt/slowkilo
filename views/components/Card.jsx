@@ -1,11 +1,11 @@
 const React = require("react");
 
-function Card() {
+function Card(props) {
   return (
     <div>
-      <form action="/create-post/created" method="post">
-        <input type="text" name="title" placeholder="title" />
-      </form>
+      <h1>Card component example</h1>
+      <img src={props.image} width="100" alt="" />
+      <p>{props.text}</p>
     </div>
   );
 }
