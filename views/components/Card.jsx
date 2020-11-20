@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-const React = require("react");
-
-function Card() {
-  return (
-    <div>
-      <form action="/create-post/created" method="post">
-        <input type="text" name="title" placeholder="title" />
-      </form>
-    </div>
-  );
-}
-
-module.exports = Card;
-=======
 const React = require("react");
 
 function Card(props) {
@@ -26,4 +11,3 @@ function Card(props) {
 }
 
 module.exports = Card;
->>>>>>> 2d990213a15638d409db1dfe88d9dbd5e0ef4240
