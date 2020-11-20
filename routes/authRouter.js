@@ -11,6 +11,13 @@ const salt = bcrypt.genSaltSync(saltRounds);
 authRouter.post("/signup", (req, res, next) => {
   const { username, password } = req.body;
 
+  if (username === "" || password === "") {
+    const props = { errorMessage: "Insert username and password" };
+
+    res.render("Home", props);
+    return;
+  }
+
   User.findOne({ username })
     .then((user) => {
       if (user) {
