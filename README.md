@@ -1,7 +1,5 @@
 # SlowKilo
 
-
-
 ## Description
 
 Social media page where users can create posts that will contain an image, description and date. Users can create, edit or delete their own posts and visit other user's posts.
@@ -15,14 +13,12 @@ Social media page where users can create posts that will contain an image, descr
 - **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
 - **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
 - **search bar** - As a user I want to access other user's profile by searching their username
-- **profile page** -  As a user I want to see my profile information and be able to edit it
+- **profile page** - As a user I want to see my profile information and be able to edit it
 - **my posts page** - As a user I want to see all my posts
 - **create post page** - As a user I want to be able to create a new post that will be available in my posts page
 - **edit/delete post page** - As a user I want to be able to edit my posts and delete them
 - **image page** - As a user I want to access one post and display it full-screen
 - **feed** - As a user I want to be able to see a list of the latest pictures uploaded to the platform.
-
-
 
 ## Backlog
 
@@ -48,32 +44,27 @@ Events page:
 
 ## ROUTES:
 
-
-
-| **Method** | **Route**     | **Description**                                              | **Request - Body**                          |
-| ---------- | ------------- | ------------------------------------------------------------ | ------------------------------------------- |
-| ``GET``    | /             | Renders the home page                                        |                                             |
-| ``GET``    | /auth/signup  | Renders the signup form                                      |                                             |
-| ``POST``   | /auth/signup  | Sends Sign Up info to the server and creates user in the DB . Redirects to /feed if user is logged in | {username,  password}                       |
-| ``GET``    | /auth/login   | Renders the login form                                       |                                             |
-| ``POST``   | /auth/login   | Redirects to /feed if user is logged in                      | {username, password}                        |
-| ``POST``   | /auth/logout  | Logs out from the session and redirects to /                 |                                             |
-| ``GET``    | /feed         | Renders the posts list                                       |                                             |
-| ``GET``    | /profile      | Renders profile information                                  |                                             |
-| ``GET``    | /edit-profile | Renders update profile form                                  |                                             |
-| ``POST``   | /edit-profile | Sends updated profile information to the server and modifies user in the DB. Redirects to /profile | {username, password, image}                 |
-| ``GET``    | /my-posts     | Displays user posts history                                  |                                             |
-| ``GET``    | /create-post  | Renders the form to create a new post                        |                                             |
-| ``POST``   | /create-post  | Sends post information to the server and adds post to DB. Redirects to /my-posts | {image, title, username, description, date} |
-| ``GET``    | /:id/edit     | Renders edit post form for a specific post id                |                                             |
-| ``POST``   | /:id/edit     | Sends edited post information to the server and modifies it in the DB. Redirects to /my-posts | {image, title, username, description, date} |
-| ``GET``    | /images/:id   | Renders image detail page                                    |                                             |
-
-
+| **Method** | **Route**     | **Description**                                                                                       | **Request - Body**                          |
+| ---------- | ------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `GET`      | /             | Renders the home page                                                                                 |                                             |
+| `GET`      | /auth/signup  | Renders the signup form                                                                               |                                             |
+| `POST`     | /auth/signup  | Sends Sign Up info to the server and creates user in the DB . Redirects to /feed if user is logged in | {username, password}                        |
+| `GET`      | /auth/login   | Renders the login form                                                                                |                                             |
+| `POST`     | /auth/login   | Redirects to /feed if user is logged in                                                               | {username, password}                        |
+| `POST`     | /auth/logout  | Logs out from the session and redirects to /                                                          |                                             |
+| `GET`      | /feed         | Renders the posts list                                                                                |                                             |
+| `GET`      | /profile      | Renders profile information                                                                           |                                             |
+| `GET`      | /edit-profile | Renders update profile form                                                                           |                                             |
+| `POST`     | /edit-profile | Sends updated profile information to the server and modifies user in the DB. Redirects to /profile    | {username, password, image}                 |
+| `GET`      | /my-posts     | Displays user posts history                                                                           |                                             |
+| `GET`      | /create-post  | Renders the form to create a new post                                                                 |                                             |
+| `POST`     | /create-post  | Sends post information to the server and adds post to DB. Redirects to /my-posts                      | {image, title, username, description, date} |
+| `GET`      | /post/:id/    | Renders a single image                                                                                |
+| `GET`      | /:id/edit     | Renders edit post form for a specific post id                                                         |                                             |
+| `POST`     | /:id/edit     | Sends edited post information to the server and modifies it in the DB. Redirects to /my-posts         | {image, title, username, description, date} |
+| `GET`      | /images/:id   | Renders image detail page                                                                             |                                             |
 
 ## Models
-
-
 
 User model
 
@@ -116,25 +107,15 @@ const Post = mongoose.model("Post", postSchema);
 module.exports = Post;
 ```
 
-
-
 AllPosts model
 
 const allPostsSchema = new Schema({
- posts: [{ type: mongoose.SchemaTypes.ObjectId, ref: "Post" }],
+posts: [{ type: mongoose.SchemaTypes.ObjectId, ref: "Post" }],
 });
 
 const allPosts = mongoose.model("allPost", allPostsSchema);
 
 module.exports = allPosts
-
-
-
-
-
-
-
-
 
 ## Links
 

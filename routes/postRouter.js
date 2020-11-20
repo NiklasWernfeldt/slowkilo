@@ -1,8 +1,10 @@
 const express = require("express");
 const postRouter = express.Router();
 
-postRouter.get("/create", (req, res, next) => {
-  res.render("Card");
+postRouter.get("/", (req, res, next) => {
+  res.render("Post");
 });
+
+postRouter.get("/:id");
 
 module.exports = postRouter;
