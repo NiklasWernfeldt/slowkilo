@@ -33,3 +33,7 @@ const users = [
   },
 ];
 
+<<<<<<< HEAD
+=======
+module.exports = users;
+>>>>>>> 8edb513d55a1975ca9490b778a4b0cfd5216c755

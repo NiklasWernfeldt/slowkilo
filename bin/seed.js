@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 const User = require("./../models/User.model");
 const Post = require("./../models/Post.model");
 
+<<<<<<< HEAD
 const users = require("./users-mock-data");
+=======
+const users = require("./user-mock-data");
+>>>>>>> 8edb513d55a1975ca9490b778a4b0cfd5216c755
 const posts = require("./posts-mock-data");
 
 const DB_NAME = "library";
@@ -28,7 +32,7 @@ mongoose
     return pr; // forwards the promise to next `then`
   })
   .then((createdUsers) => {
-    console.log(`Created ${createdUsers.length} authors`);
+    console.log(`Created ${createdUsers.length} users`);
 
     // 3. WHEN .create() OPERATION IS DONE
     // UPDATE THE OBJECTS IN THE ARRAY OF books
@@ -41,13 +45,14 @@ mongoose
 
       return userObj; // return the updated bookObj
     });
-
-    const pr = Post.create(updatedUsers);
+    console.log("updatedUsers", updatedUsers);
+    const pr = Post.create(posts[0]);
     return pr; // forwards the promise to next `then`
   })
-  .then((createdBooks) => {
+  .then((createdPosts) => {
     // 4. WHEN .create() OPERATION IS DONE, CLOSE DB CONNECTION
-    console.log(`Inserted ${createdBooks.length} books`);
+    console.log(`Inserted ${createdPosts.length} posts`);
+    console.log(createdPosts);
 
     mongoose.connection.close();
   })
