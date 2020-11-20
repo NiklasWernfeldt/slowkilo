@@ -2,14 +2,10 @@ const mongoose = require("mongoose");
 const User = require("./../models/User.model");
 const Post = require("./../models/Post.model");
 
-<<<<<<< HEAD
-const users = require("./users-mock-data");
-=======
 const users = require("./user-mock-data");
->>>>>>> 8edb513d55a1975ca9490b778a4b0cfd5216c755
 const posts = require("./posts-mock-data");
 
-const DB_NAME = "library";
+const DB_NAME = "mockSlowkilo";
 
 // SEED SEQUENCE
 
@@ -35,25 +31,36 @@ mongoose
     console.log(`Created ${createdUsers.length} users`);
 
     // 3. WHEN .create() OPERATION IS DONE
-    // UPDATE THE OBJECTS IN THE ARRAY OF books
+    // UPDATE THE OBJECTS IN THE ARRAY OF posts
 
-    const updatedUsers = users.map((userObj, i) => {
-      // Update the userObj and set the corresponding author id
+    const updatedPosts = posts.map((postsObj, i) => {
+      // Update the postsObj and set the corresponding user id
       // to create the reference
       const user = createdUsers[i];
-      userObj.posts = [user._id];
+      console.log('user', user);
+      postsObj.user = [user._id];
 
-      return userObj; // return the updated bookObj
+      return postsObj; // return the updated postsObj
     });
-    console.log("updatedUsers", updatedUsers);
-    const pr = Post.create(posts[0]);
+    const pr = Post.create(updatedPosts);
     return pr; // forwards the promise to next `then`
   })
   .then((createdPosts) => {
     // 4. WHEN .create() OPERATION IS DONE, CLOSE DB CONNECTION
     console.log(`Inserted ${createdPosts.length} posts`);
     console.log(createdPosts);
-
+    const updatedUsers = users.map((usersObj, i) =>{
+      const post = createdPosts[i];
+      console.log('post', post);
+      usersObj.posts = [post._id];
+      return usersObj; //return updates usersObj
+    }) 
+    console.log('updatedUsers', updatedUsers);  //Logs the users with posts ID
+    const pr = User.updateMany(updatedUsers);  //Mongoose documentation sucks and I can't figure how to update the users :D 
+    return pr;
+  })
+  .then((updatedUsers)=> {
+   console.log(`Updated ${updatedUsers.lenght} users`);
     mongoose.connection.close();
   })
   .catch((err) => console.log(err));

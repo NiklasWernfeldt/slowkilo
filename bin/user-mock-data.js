@@ -31,9 +31,13 @@ const users = [
     email: "erik@gmail.com",
     password: "9i204rfwkm",
   },
+  {
+    username: "Carlos",
+    profileImage: "https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    posts: [],
+    email: "carlos@gmail.com",
+    password: "29184hfhh23"
+  }
 ];
 
-<<<<<<< HEAD
-=======
 module.exports = users;
->>>>>>> 8edb513d55a1975ca9490b778a4b0cfd5216c755
