@@ -42,7 +42,7 @@ mongoose
       return userObj; // return the updated bookObj
     });
     console.log("updatedUsers", updatedUsers);
-    const pr = Post.create(posts[0]);
+    const pr = Post.create(posts);
     return pr; // forwards the promise to next `then`
   })
   .then((createdPosts) => {
