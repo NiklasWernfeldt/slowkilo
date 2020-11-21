@@ -13,17 +13,28 @@ const authRouter = require("./routes/authRouter");
 const siteRouter = require("./routes/siteRouter");
 const feedRouter = require("./routes/feedRouter");
 const postRouter = require("./routes/postRouter");
+const profileRouter = require("./routes/profileRouter");
 
-const app = express();
+const DB_NAME = 'mockSlowkilo';
+
 
 // DB CONNECTION
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to the DB."))
-  .catch((err) => console.log(err));
+.connect(`mongodb://localhost:27017/${DB_NAME}`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+})
+.then((x) => {
+  console.log(`Connected to DB: "${x.connections[0].name}"`);
+})
+.catch((err) => {
+  console.error("Error connecting to mongo", err);
+});
+
+
+
+const app = express();
 
 // VIEW ENGINE SETUP
 app.set("views", __dirname + "/views");
@@ -58,6 +69,7 @@ app.use("/auth", authRouter);
 app.use("/", siteRouter);
 app.use("/feed", feedRouter);
 app.use("/post", postRouter);
+app.use("/profile", profileRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
