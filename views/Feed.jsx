@@ -6,9 +6,14 @@ function Feed(props) {
   return (
     <Layout>
       <div>
-        <h1>Hello World</h1>
         {props.posts.map((post, i) => {
-          return <img key={i} src={post.image} alt="feed-image" />;
+          return (
+        <div key={i}>
+          <img src={post.image} alt="feed-image" />
+          <h3>{post.title}</h3>
+          <p>{post.description}</p>
+        </div>
+          )
         })}
       </div>
     </Layout>

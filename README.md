@@ -54,8 +54,8 @@ Events page:
 | `POST`     | /auth/logout  | Logs out from the session and redirects to /                                                          |                                             |
 | `GET`      | /feed         | Renders the posts list                                                                                |                                             |
 | `GET`      | /profile      | Renders profile information                                                                           |                                             |
-| `GET`      | /edit-profile | Renders update profile form                                                                           |                                             |
-| `POST`     | /edit-profile | Sends updated profile information to the server and modifies user in the DB. Redirects to /profile    | {username, password, image}                 |
+| `GET`      | /profile/edit | Renders update profile form                                                                           |                                             |
+| `POST`     | /profile/edit | Sends updated profile information to the server and modifies user in the DB. Redirects to /profile    | {username, password, image}                 |
 | `GET`      | /my-posts     | Displays user posts history                                                                           |                                             |
 | `GET`      | /create-post  | Renders the form to create a new post                                                                 |                                             |
 | `POST`     | /create-post  | Sends post information to the server and adds post to DB. Redirects to /my-posts                      | {image, title, username, description, date} |

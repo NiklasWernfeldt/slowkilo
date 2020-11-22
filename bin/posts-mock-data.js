@@ -3,7 +3,7 @@ const posts = [
         image: "https://cdn.pixabay.com/photo/2016/02/19/11/19/office-1209640__340.jpg",
         title: "Working hard",
         user: "",  //{ type: mongoose.SchemaTypes.ObjectId, ref: "User" }
-        description: "Another day at the office with my awesome colleagues.",
+        description: "Another day at the office with my colleagues.",
         date: "2020-10-25",
     },
     {
@@ -31,7 +31,7 @@ const posts = [
         image: "https://cdn.pixabay.com/photo/2015/07/30/17/24/audience-868074_1280.jpg",
         title: "Concert",
         user: "",
-        description: "Amazing night with you guys",
+        description: "Amazing night with my guys",
         date: "2020-10-29"
     },
 

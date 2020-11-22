@@ -49,8 +49,10 @@ mongoose
     // 4. WHEN .create() OPERATION IS DONE, CLOSE DB CONNECTION
     //console.log(`Inserted ${createdPosts.length} posts`);
     //console.log(createdPosts);
-    const updatedUsers = users.map((usersObj, i) =>{
-      const post = createdPosts[i];
+    createdPosts.forEach((post, i) =>{
+    const pr = User.findByIdAndUpdate(
+      posts, {$set}
+    )
       //console.log('post', post);
       usersObj.posts = [post._id];
       return usersObj; //return updates usersObj
