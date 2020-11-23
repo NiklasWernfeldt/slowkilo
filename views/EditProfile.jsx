@@ -2,10 +2,22 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function EditProfile(props) {
-    console.log("props.posts", props.posts);
     return (
       <Layout>
-        <p>HELLO WORLD</p>
+        
+        <form action="/profile/edit" method="post">
+          <label> Username - {props.user.username} </label>
+            <input name="username" type="text" placeholder="Change your username" />
+            <br/>
+          <label>Email - {props.user.email}</label>
+            <input name="email" type="text" placeholder="Change your email"/>
+            <br/>
+          <label>Change password</label>
+            <input name='password' type="password"/>
+            <br/>
+            <button type="submit">Edit profile</button>
+        </form>
+
       </Layout>
     );
   }

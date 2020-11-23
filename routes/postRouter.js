@@ -1,6 +1,6 @@
 const express = require("express");
-const users = require("../bin/user-mock-data");
 const postRouter = express.Router();
+const users = require("../bin/user-mock-data");
 const isLoggedIn = require("./../utils/isLoggedIn");
 const session = require("express-session");
 const User = require("./../models/User.model");
@@ -30,7 +30,7 @@ res.render('CreatePost')
 //POST /posts/create
 
 postRouter.get('/create', isLoggedIn, (req,res,next) => {
-  const {image, title, description}
+ 
 })
 
 
