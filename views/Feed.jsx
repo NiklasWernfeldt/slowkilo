@@ -2,7 +2,7 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function Feed(props) {
-  //console.log("props.posts", props.posts);
+  //console.log("props.posts" props.posts);
   return (
     <Layout>
       <div>
