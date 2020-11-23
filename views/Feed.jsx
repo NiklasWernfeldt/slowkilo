@@ -6,14 +6,16 @@ function Feed(props) {
   return (
     <Layout>
       <div>
+        <h1>Heloo</h1>
         {props.posts.map((post, i) => {
           return (
-        <div key={i}>
-          <img src={post.image} alt="feed-image" />
-          <h3>{post.title}</h3>
-          <p>{post.description}</p>
-        </div>
-          )
+            <div key={i}>
+              <img src={post.image} alt="feed-image" />
+              <h3>{post.title}</h3>
+              <p>{post.description}</p>
+              <p>{post.posts.user.username}</p>
+            </div>
+          );
         })}
       </div>
     </Layout>
