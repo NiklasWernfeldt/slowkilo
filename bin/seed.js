@@ -5,13 +5,12 @@ const Post = require("./../models/Post.model");
 const users = require("./user-mock-data");
 const posts = require("./posts-mock-data");
 
-const DB_NAME = "mockSlowkilo";
-
+require("dotenv").config();
 // SEED SEQUENCE
 
 // 0. ESTABLISH CONNECTION TO MONGO DATABASE
 mongoose
-  .connect(`mongodb://localhost:27017/${DB_NAME}`, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
