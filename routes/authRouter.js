@@ -21,7 +21,7 @@ authRouter.post("/signup", (req, res, next) => {
   if (username === "" || password === "") {
     const props = { errorMessage: "Insert username and password" };
 
-    res.render("Home", props);
+    res.render("Signup", props);
     return;
   }
 
@@ -37,8 +37,8 @@ authRouter.post("/signup", (req, res, next) => {
       const hashedPassword = bcrypt.hashSync(password, salt);
       
       User.create({ username, password: hashedPassword }).then((createdUser) => {
-          const props = { user: createdUser };
-          res.render("Feed", props);
+          req.session.currentUser = createdUser;  
+          res.redirect('/feed');
         }).catch((err)=>console.log(err))
     })
     .catch((err)=>next(err))
