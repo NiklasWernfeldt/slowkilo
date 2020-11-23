@@ -15,6 +15,5 @@ postRouter.get("/", isLoggedIn, (req, res, next) => {
   res.render("Post");
 });
 
-postRouter.get("/:id");
 
 module.exports = postRouter;
