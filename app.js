@@ -66,7 +66,7 @@ app.use(
 // ROUTES
 app.use("/auth", authRouter);
 app.use("/feed", feedRouter);
-app.use("/post", postRouter);
+app.use("/posts", postRouter);
 app.use("/profile", profileRouter);
 
 /* GET home page. */
