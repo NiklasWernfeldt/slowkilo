@@ -68,7 +68,7 @@ authRouter.post('/login', (req,res,next)=>{
         return;
         }
 
-        const passwordCorrect = bcrypt.compareSync(password, user.password);
+        const passwordCorrect = password === user.password //bcrypt.compareSync(password, user.password);
 
         if(passwordCorrect){
             req.session.currentUser = user;  

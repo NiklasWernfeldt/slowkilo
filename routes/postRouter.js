@@ -5,15 +5,18 @@ const isLoggedIn = require("./../utils/isLoggedIn");
 const User = require("./../models/User.model");
 
 postRouter.get("/", isLoggedIn, (req, res, next) => {
-  User.find()
+  const { _id } = req.session.currentUser;
+  User.findById(_id)
     .populate("posts")
-    .then((users) => {
-      console.log("users", users);
-    })
-    .catch((err) => console.log(err));
+    .then((user) => {
 
-  res.render("Post");
-});
+       const props = { user: user };
+       console.log('props', props);
+       res.render("Posts", props);
+     })
+     .catch((err) => console.log(err));
+ });
+
 
 
 module.exports = postRouter;
