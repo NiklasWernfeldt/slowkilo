@@ -49,30 +49,23 @@ mongoose
     // 4. WHEN .create() OPERATION IS DONE, CLOSE DB CONNECTION
     //console.log(`Inserted ${createdPosts.length} posts`);
     //console.log(createdPosts);
-     const prs = createdPosts.map((post, i) =>{
-        const pr = User.findByIdAndUpdate(
-          post.user,                                                        
-          {posts: [post._id]},
-          {new: true},
-          function(err) {
-            if(err) {
-              console.log(err);
-            }
+    const prs = createdPosts.map((post, i) => {
+      const pr = User.findByIdAndUpdate(
+        post.user,
+        { posts: [post._id] },
+        { new: true },
+        function (err) {
+          if (err) {
+            console.log(err);
           }
-        );
-        return pr;
-      });
-     const bigPr = Promise.all(prs);
-     return bigPr; 
+        }
+      );
+      return pr;
+    });
+    const bigPr = Promise.all(prs);
+    return bigPr;
   })
-.then(()=> {
-  mongoose.connection.close();
-})
-.catch((err) => console.log(err));
-
-
-    
-    
-    
-    
-    
+  .then(() => {
+    mongoose.connection.close();
+  })
+  .catch((err) => console.log(err));

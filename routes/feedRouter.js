@@ -5,7 +5,6 @@ const Post = require("./../models/Post.model");
 const isLoggedIn = require("../utils/isLoggedIn");
 
 
-
 //GET /feed
 
 feedRouter.get("/",  isLoggedIn, function (req, res, next) {
