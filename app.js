@@ -10,7 +10,6 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
 const authRouter = require("./routes/authRouter");
-const siteRouter = require("./routes/siteRouter");
 const feedRouter = require("./routes/feedRouter");
 const postRouter = require("./routes/postRouter");
 const profileRouter = require("./routes/profileRouter");
@@ -66,7 +65,6 @@ app.use(
 
 // ROUTES
 app.use("/auth", authRouter);
-app.use("/", siteRouter);
 app.use("/feed", feedRouter);
 app.use("/post", postRouter);
 app.use("/profile", profileRouter);

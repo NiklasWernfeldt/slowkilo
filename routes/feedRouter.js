@@ -7,16 +7,17 @@ const Post = require("./../models/Post.model");
 //GET /feed
 
 feedRouter.get("/", function (req, res, next) {
-  Post.find() // FIND WONT FORK
-    .then((posts) => {
-      console.log('all posts from db', posts);
-      const props = { posts: posts };
-      res.render("Feed", props);
-    })
-    .catch((err) => console.log(err));
-});
+  Post.find().populate('user')
+   .then((posts) => {
+    const props = { posts: posts };
+    res.render("Feed", props);
+   })
+  .catch((err) => console.log(err))
+  })
+
+
+    
 
 
 
 module.exports = feedRouter;
-
