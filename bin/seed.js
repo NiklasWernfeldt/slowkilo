@@ -38,7 +38,7 @@ mongoose
       // to create the reference
       const user = createdUsers[i];
       //console.log('user', user);
-      postsObj.user = [user._id];
+      postsObj.user = user._id;
 
       return postsObj; // return the updated postsObj
     });
@@ -49,12 +49,10 @@ mongoose
     // 4. WHEN .create() OPERATION IS DONE, CLOSE DB CONNECTION
     //console.log(`Inserted ${createdPosts.length} posts`);
     //console.log(createdPosts);
-    createdPosts.forEach((post, i) => {
-      console.log(post.user[0]);
-      console.log(post._id);
+    const prs = createdPosts.map((post, i) => {
       const pr = User.findByIdAndUpdate(
-        post.user[0],
-        { $push: { posts: post._id } },
+        post.user,
+        { posts: [post._id] },
         { new: true },
         function (err) {
           if (err) {
@@ -64,6 +62,8 @@ mongoose
       );
       return pr;
     });
+    const bigPr = Promise.all(prs);
+    return bigPr;
   })
   .then(() => {
     mongoose.connection.close();

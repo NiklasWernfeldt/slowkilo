@@ -7,9 +7,8 @@ const Post = require("./../models/Post.model");
 
 feedRouter.get("/", function (req, res, next) {
   Post.find()
-    .populate("user") // FIND WONT FORK
+    .populate("user")
     .then((posts) => {
-      console.log("all posts from db", posts);
       const props = { posts: posts };
       res.render("Feed", props);
     })
