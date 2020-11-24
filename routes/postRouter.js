@@ -14,7 +14,6 @@ postRouter.get("/", isLoggedIn, (req, res, next) => {
     .then((user) => {
 
        const props = { user: user };
-       console.log('props', props);
        res.render("Posts", props);
      })
      .catch((err) => console.log(err));
@@ -34,6 +33,22 @@ postRouter.get('/create', isLoggedIn, (req,res,next) => {
  
 })
 
+
+
+
+
+
+postRouter.get('/details/:id', isLoggedIn, (req,res,next) => {
+  const postId = req.params.id;
+  console.log('postId', postId);
+  Post.findById(postId)
+    .then((post) =>{
+      const props = {post: post};
+      console.log(post)
+      res.render('Details', props)
+    })
+    .catch((err) => console.log(err));
+})
 
 
 

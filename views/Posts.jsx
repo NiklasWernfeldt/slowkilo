@@ -9,7 +9,7 @@ function Posts(props) {
         {props.user.posts.map((post, i) => {
           return (
             <div key={i}>
-              <img src={post.image} alt="feed-image" />
+              <a href={`/posts/details/${post._id}`}><img src={post.image} alt="feed-image" /></a>
               <h3>{post.title}</h3>
               <p>{post.description}</p>
             </div>
