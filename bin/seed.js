@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 const User = require("./../models/User.model");
 const Post = require("./../models/Post.model");
@@ -7,13 +9,13 @@ const saltRounds = 10;
 const users = require("./user-mock-data");
 const posts = require("./posts-mock-data");
 
-const DB_NAME = "mockSlowkilo";
+// const DB_NAME = "mockSlowkilo";
 
 // SEED SEQUENCE
 
 // 0. ESTABLISH CONNECTION TO MONGO DATABASE
 mongoose
-  .connect(`mongodb://localhost:27017/${DB_NAME}`, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -27,7 +29,7 @@ mongoose
   .then(() => {
     // 2.  CREATE THE DOCUMENTS FROM ARRAY OF authors
     const pr = User.create(users);
-    return pr; // forwards the promise to next `then` 
+    return pr; // forwards the promise to next `then`
   })
   .then((createdUsers) => {
     //console.log(`Created ${createdUsers.length} users`);
