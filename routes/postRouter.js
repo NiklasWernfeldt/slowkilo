@@ -12,34 +12,21 @@ postRouter.get("/", isLoggedIn, (req, res, next) => {
   User.findById(_id)
     .populate("posts")
     .then((user) => {
-
-       const props = { user: user };
-       console.log('props', props);
-       res.render("Posts", props);
-     })
-     .catch((err) => console.log(err));
- });
-
+      const props = { user: user };
+      console.log("props", props);
+      res.render("Posts", props);
+    })
+    .catch((err) => console.log(err));
+});
 
 // GET /posts/create
 
-postRouter.get('/create', isLoggedIn, (req,res,next)=>{
-res.render('CreatePost')
-})
+postRouter.get("/create", isLoggedIn, (req, res, next) => {
+  res.render("CreatePost");
+});
 
 //POST /posts/create
 
-postRouter.get('/create', isLoggedIn, (req,res,next) => {
- 
-})
-
-
+postRouter.get("/create", isLoggedIn, (req, res, next) => {});
 
 module.exports = postRouter;
-
-{
-  /* done seed.js 
-do the routes 
-we have a problem with deployment 
-pass */
-}
