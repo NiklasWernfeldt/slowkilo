@@ -9,7 +9,11 @@ const saltRounds = 10;
 const users = require("./user-mock-data");
 const posts = require("./posts-mock-data");
 
+// Run this in development?
 // const DB_NAME = "mockSlowkilo";
+
+// Run this in development?
+// process.env.MONGODB_URI
 
 // SEED SEQUENCE
 

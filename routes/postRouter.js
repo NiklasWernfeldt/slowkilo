@@ -3,7 +3,7 @@ const postRouter = express.Router();
 const users = require("../bin/user-mock-data");
 const isLoggedIn = require("./../utils/isLoggedIn");
 const session = require("express-session");
-const parser = require('./../config/cloudinary');
+const parser = require("./../config/cloudinary");
 const User = require("./../models/User.model");
 const Post = require("./../models/Post.model");
 
@@ -21,7 +21,7 @@ postRouter.get("/", isLoggedIn, (req, res, next) => {
 
 // GET /posts/create
 
-postRouter.get("/create", isLoggedIn,  (req, res, next) => {
+postRouter.get("/create", isLoggedIn, (req, res, next) => {
   res.render("CreatePost");
 });
 
@@ -87,22 +87,19 @@ postRouter.get('/details/:id', isLoggedIn, (req,res,next) => {
       res.render('Details', props)
     })
     .catch((err) => console.log(err));
-})
-
-
+});
 
 //GET posts/user/:id
 
 postRouter.get('/user/:id', isLoggedIn, (req,res,next)=> {
   const userId = req.params.id;
   User.findById(userId)
-    .populate('posts')
+    .populate("posts")
     .then((user) => {
       const props = { user: user };
       res.render("UserPosts", props);
     })
     .catch((err) => console.log(err));
 });
-
 
 module.exports = postRouter;
