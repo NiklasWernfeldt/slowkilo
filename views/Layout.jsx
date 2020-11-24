@@ -9,7 +9,18 @@ function Layout(props) {
         <link rel="stylesheet" href="/stylesheets/style.css" />
       </head>
 
-      <body>{props.children}</body>
+      <body>
+        {props.children}
+      
+      
+
+  <div className="navbar">
+    <a href="/feed">Feed</a>
+    <a href="/profile">My Profile</a>
+    <a href="/posts">My posts</a>
+    <a href="/auth/logout">Log out</a>
+  </div>
+      </body>
     </html>
   );
 }

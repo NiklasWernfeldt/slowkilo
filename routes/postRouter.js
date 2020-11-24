@@ -27,6 +27,6 @@ postRouter.get("/create", isLoggedIn, (req, res, next) => {
 
 //POST /posts/create
 
-postRouter.post("/create", isLoggedIn, (req, res, next) => {});
+postRouter.get("/create", isLoggedIn, (req, res, next) => {});
 
 module.exports = postRouter;
