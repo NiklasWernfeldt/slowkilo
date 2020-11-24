@@ -2,7 +2,7 @@ const express = require("express");
 const authRouter = express.Router();
 
 const User = require("./../models/User.model");
-
+const isLoggedIn = require("../utils/isLoggedIn");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -68,7 +68,7 @@ authRouter.post('/login', (req,res,next)=>{
         return;
         }
 
-        const passwordCorrect = bcrypt.compareSync(password, user.password);
+        const passwordCorrect = password === user.password //bcrypt.compareSync(password, user.password);
 
         if(passwordCorrect){
             req.session.currentUser = user;  
@@ -79,6 +79,19 @@ authRouter.post('/login', (req,res,next)=>{
     })
     .catch((err) => next(err));
 })
+
+
+//GET /auth/logout
+
+authRouter.get('/logout', isLoggedIn, (req,res,next) => {
+    req.session.destroy((err) => {
+        if(err) {
+            res.render('Profile')
+        } else {
+            res.redirect('/auth/login')
+        }
+    });
+});
 
 
 

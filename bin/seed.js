@@ -1,11 +1,16 @@
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 const User = require("./../models/User.model");
 const Post = require("./../models/Post.model");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 const users = require("./user-mock-data");
 const posts = require("./posts-mock-data");
 
-require("dotenv").config();
+// const DB_NAME = "mockSlowkilo";
+
 // SEED SEQUENCE
 
 // 0. ESTABLISH CONNECTION TO MONGO DATABASE

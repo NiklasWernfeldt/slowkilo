@@ -14,6 +14,8 @@ const feedRouter = require("./routes/feedRouter");
 const postRouter = require("./routes/postRouter");
 const profileRouter = require("./routes/profileRouter");
 
+// const DB_NAME = 'mockSlowkilo';
+
 // DB CONNECTION
 mongoose
   .connect(process.env.MONGODB_URI, {

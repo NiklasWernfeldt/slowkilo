@@ -1,19 +1,32 @@
 const express = require("express");
-const users = require("../bin/user-mock-data");
 const postRouter = express.Router();
+const users = require("../bin/user-mock-data");
 const isLoggedIn = require("./../utils/isLoggedIn");
+const session = require("express-session");
 const User = require("./../models/User.model");
+const Post = require("./../models/Post.model");
 
+//GET /posts -currentUser posts
 postRouter.get("/", isLoggedIn, (req, res, next) => {
-  User.find()
+  const { _id } = req.session.currentUser;
+  User.findById(_id)
     .populate("posts")
-    .then((users) => {
-      console.log("users", users);
+    .then((user) => {
+      const props = { user: user };
+      console.log("props", props);
+      res.render("Posts", props);
     })
     .catch((err) => console.log(err));
-
-  res.render("Post");
 });
 
+// GET /posts/create
+
+postRouter.get("/create", isLoggedIn, (req, res, next) => {
+  res.render("CreatePost");
+});
+
+//POST /posts/create
+
+postRouter.get("/create", isLoggedIn, (req, res, next) => {});
 
 module.exports = postRouter;
