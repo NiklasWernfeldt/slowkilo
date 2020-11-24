@@ -6,6 +6,7 @@ function Home(props) {
   return (
     <Layout title="Home Page">
       <h1>Home Page</h1>
+      signup login 
     </Layout>
   );
 }

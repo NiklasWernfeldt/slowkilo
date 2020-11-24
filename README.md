@@ -46,6 +46,12 @@ Events page:
 - create an events model
 - add a page where the user could create events of their own and join events from other users
 
+Profile picture
+
+- Adding profile picture in signup form, profile and edit profile.
+
+​	
+
 ## ROUTES:
 
 
