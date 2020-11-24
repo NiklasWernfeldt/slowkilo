@@ -1,11 +1,11 @@
 const React = require("react");
+const { post } = require("../app");
 const Layout = require("./Layout");
 
 function Posts(props) {
   return (
     <Layout>
       <div>
-        <h1>Helloo</h1>
         {props.user.posts.map((post, i) => {
           return (
             <div key={i}>
@@ -15,6 +15,8 @@ function Posts(props) {
             </div>
           );
         })}
+
+        <h1>{props.user.username}</h1>
       </div>
     </Layout>
   );

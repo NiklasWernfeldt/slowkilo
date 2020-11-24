@@ -51,5 +51,16 @@ postRouter.get('/details/:id', isLoggedIn, (req,res,next) => {
 })
 
 
+postRouter.get('/user/:id', isLoggedIn, (req,res,next)=> {
+  const userId = req.params.id;
+  User.findById(userId)
+    .populate('posts')
+    .then((user) => {
+      const props = { user: user };
+      res.render("UserPosts", props);
+    })
+    .catch((err) => console.log(err));
+});
+
 
 module.exports = postRouter;

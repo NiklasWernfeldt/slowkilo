@@ -13,7 +13,7 @@ function Feed(props) {
               <img src={post.image} alt="feed-image" />
               <h3>{post.title}</h3>
               <p>{post.description}</p>
-              <p>{post.user.username}</p>
+              <a href={`/posts/user/${post.user._id}`}><p>{post.user.username}</p></a>
             </div>
           );
         })}
