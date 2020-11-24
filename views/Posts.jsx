@@ -5,8 +5,10 @@ const Layout = require("./Layout");
 function Posts(props) {
   return (
     <Layout>
+
       <div>
         <h1>POSTS FROM USER </h1>
+        <button><a href="/posts/create">New post</a></button>
         {props.user.posts.map((post, i) => {
           return (
             <div key={i}>
@@ -15,7 +17,7 @@ function Posts(props) {
               </a>
               <h3>{post.title}</h3>
               <p>{post.description}</p>
-              <button><a href={`/posts/edit/${post._id}`}>Edit post</a></button>
+              <button><a href={`/posts/edit/${post._id}`}>Edit post</a></button> 
             </div>
           );
         })}

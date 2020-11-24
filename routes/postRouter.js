@@ -76,6 +76,16 @@ postRouter.post("/edit/:id", parser.single('image'), isLoggedIn, (req, res, next
 });
 
 
+//GET /posts/delete/:id
+
+postRouter.get("/delete/:id", isLoggedIn, (req, res, next) => {
+  const postId = req.params.id;
+  Post.findOneAndDelete({ _id: postId })
+    .then((deletedPost) => {
+      res.redirect("/posts");
+    })
+    .catch((err) => console.log(err));
+});
 
 
 //GET /posts/details/:id

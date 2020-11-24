@@ -10,7 +10,7 @@ function PostEdit(props) {
             <input type='file' name='image' placeholder="Upload an image"/>
             <input name="title" type="text" placeholder="Enter a title" />
             <input name="description" type="text" placeholder="Enter a description"/>
-            <button type="submit">Edit Post</button>
+            <button type="submit">Edit Post</button> <button type="button"><a href={`/posts/delete/${props.post._id}`}> Delete Post</a></button>
         </form>
       </div>
       </Layout>
