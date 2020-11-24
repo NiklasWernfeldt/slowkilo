@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const User = require("./../models/User.model");
 const Post = require("./../models/Post.model");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 const users = require("./user-mock-data");
 const posts = require("./posts-mock-data");
@@ -25,7 +27,7 @@ mongoose
   .then(() => {
     // 2.  CREATE THE DOCUMENTS FROM ARRAY OF authors
     const pr = User.create(users);
-    return pr; // forwards the promise to next `then`
+    return pr; // forwards the promise to next `then` 
   })
   .then((createdUsers) => {
     //console.log(`Created ${createdUsers.length} users`);
