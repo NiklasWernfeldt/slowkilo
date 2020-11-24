@@ -6,6 +6,9 @@ function CreatePost(props) {
     <Layout>
       <div>
         <h1>Create Post Page</h1>
+        <form action="/create" method="post">
+          <input type="text" name="title"></input>
+        </form>
       </div>
     </Layout>
   );
