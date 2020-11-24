@@ -5,16 +5,7 @@ function Posts(props) {
   return (
     <Layout>
       <div>
-        <h1>Helloo</h1>
-        {props.user.posts.map((post, i) => {
-          return (
-            <div key={i}>
-              <img src={post.image} alt="feed-image" />
-              <h3>{post.title}</h3>
-              <p>{post.description}</p>
-            </div>
-          );
-        })}
+        <h1>Helloo from Posts page</h1>
       </div>
     </Layout>
   );
