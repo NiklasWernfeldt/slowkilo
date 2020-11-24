@@ -15,5 +15,11 @@ postRouter.get("/", isLoggedIn, (req, res, next) => {
   res.render("Post");
 });
 
-
 module.exports = postRouter;
+
+{
+  /* done seed.js 
+do the routes 
+we have a problem with deployment 
+pass */
+}
