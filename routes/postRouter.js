@@ -37,4 +37,31 @@ postRouter.post("/create", isLoggedIn, (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
+
+
+postRouter.get('/details/:id', isLoggedIn, (req,res,next) => {
+  const postId = req.params.id;
+  console.log('postId', postId);
+  Post.findById(postId)
+    .then((post) =>{
+      const props = {post: post};
+      console.log(post)
+      res.render('Details', props)
+    })
+    .catch((err) => console.log(err));
+})
+
+
+postRouter.get('/user/:id', isLoggedIn, (req,res,next)=> {
+  const userId = req.params.id;
+  User.findById(userId)
+    .populate('posts')
+    .then((user) => {
+      const props = { user: user };
+      res.render("UserPosts", props);
+    })
+    .catch((err) => console.log(err));
+});
+
+
 module.exports = postRouter;
