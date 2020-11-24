@@ -68,11 +68,11 @@ Profile picture
 | ``GET``    | /profile        | Renders profile information                                  |                                             |
 | ``GET``    | /edit-profile   | Renders update profile form                                  |                                             |
 | ``POST``   | /edit-profile   | Sends updated profile information to the server and modifies user in the DB. Redirects to /profile | {username, password, image}                 |
-| ``GET``    | /my-posts       | Displays user posts history                                  |                                             |
-| ``GET``    | /create-post    | Renders the form to create a new post                        |                                             |
-| ``POST``   | /create-post    | Sends post information to the server and adds post to DB. Redirects to /my-posts | {image, title, username, description, date} |
-| ``GET``    | /:id/edit       | Renders edit post form for a specific post id                |                                             |
-| ``POST``   | /:id/edit       | Sends edited post information to the server and modifies it in the DB. Redirects to /my-posts | {image, title, username, description, date} |
+| ``GET``    | /posts       | Displays user posts history                                  |                                             |
+| ``GET``    | /posts/create    | Renders the form to create a new post                        |                                             |
+| ``POST``   | /posts/create   | Sends post information to the server and adds post to DB. Redirects to /my-posts | {image, title, username, description, date} |
+| ``GET``    | /posts:id/edit       | Renders edit post form for a specific post id                |                                             |
+| ``POST``   | /posts:id/edit       | Sends edited post information to the server and modifies it in the DB. Redirects to /my-posts | {image, title, username, description, date} |
 | ``GET``    | /images/:id     | Renders image detail page                                    |                                             |
 | ``GET``    | /user/:id/posts | Renders posts for a specific user                            |                                             |
 

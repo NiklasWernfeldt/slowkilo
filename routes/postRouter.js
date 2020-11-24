@@ -40,27 +40,58 @@ postRouter.post("/create", parser.single('image'), isLoggedIn, (req, res, next) 
       {new: true}
     )
     .then((user) => {
-      console.log('USER', user);
       res.redirect('/posts');
     }) 
     .catch((err) => console.error(err));
   })
 })
 
+//GET /posts/edit/:id
 
-postRouter.get('/details/:id', isLoggedIn, (req,res,next) => {
+postRouter.get('/edit/:id', isLoggedIn, (req,res,next) => {
   const postId = req.params.id;
-  console.log('postId', postId);
   Post.findById(postId)
     .then((post) =>{
       const props = {post: post};
-      console.log(post)
+      res.render('PostEdit', props)
+    })
+    .catch((err) => console.log(err));
+})
+
+//POST /posts/edit/:id
+
+postRouter.post("/edit/:id", parser.single('image'), isLoggedIn, (req, res, next) => {
+  const postId  = req.params.id;
+  console.log(postId)
+  const imageUrl = req.file.secure_url;
+  const {title, description} = req.body;
+
+  Post.findByIdAndUpdate(
+    postId,
+    { image: imageUrl, title, description },
+    { new: true }
+  )
+    .then((post) => res.redirect("/posts"))
+    .catch((error) => console.error(error));
+});
+
+
+
+
+//GET /posts/details/:id
+postRouter.get('/details/:id', isLoggedIn, (req,res,next) => {
+  const postId = req.params.id;
+  Post.findById(postId)
+    .then((post) =>{
+      const props = {post: post};
       res.render('Details', props)
     })
     .catch((err) => console.log(err));
 })
 
 
+
+//GET posts/user/:id
 
 postRouter.get('/user/:id', isLoggedIn, (req,res,next)=> {
   const userId = req.params.id;

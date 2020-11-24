@@ -12,6 +12,7 @@ function Posts(props) {
               <a href={`/posts/details/${post._id}`}><img src={post.image} alt="feed-image" /></a>
               <h3>{post.title}</h3>
               <p>{post.description}</p>
+              <button><a href={`/posts/edit/${post._id}`}>Edit post</a></button>
             </div>
           );
         })}

@@ -40,7 +40,7 @@ profileRouter.post('/edit', isLoggedIn, function(req,res,next) {
         {new : true}
   )
   .then((user) => res.redirect('/auth/login'))
-  .catch((err) => console.error(er))
+  .catch((err) => console.error(err))
   })
 
 

@@ -9,8 +9,8 @@ const isLoggedIn = require("../utils/isLoggedIn");
 
 feedRouter.get("/",  isLoggedIn, function (req, res, next) {
   Post.find().populate('user')
-   .then((posts) => {
-    const props = { posts: posts };
+   .then((post) => {
+    const props = { post: post };
     res.render("Feed", props);
    })
   .catch((err) => console.log(err))
