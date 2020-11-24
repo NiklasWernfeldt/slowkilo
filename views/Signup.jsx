@@ -1,6 +1,6 @@
 const React = require("react");
 
-function Signup () {
+function Signup (props) {
 return (
     <html lang="en">
       <head>

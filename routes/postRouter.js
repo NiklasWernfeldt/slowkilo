@@ -3,6 +3,7 @@ const postRouter = express.Router();
 const users = require("../bin/user-mock-data");
 const isLoggedIn = require("./../utils/isLoggedIn");
 const session = require("express-session");
+const parser = require("./../config/cloudinary");
 const User = require("./../models/User.model");
 const Post = require("./../models/Post.model");
 
@@ -13,7 +14,6 @@ postRouter.get("/", isLoggedIn, (req, res, next) => {
     .populate("posts")
     .then((user) => {
       const props = { user: user };
-      console.log("props", props);
       res.render("Posts", props);
     })
     .catch((err) => console.log(err));
@@ -27,41 +27,48 @@ postRouter.get("/create", isLoggedIn, (req, res, next) => {
 
 //POST /posts/create
 
-postRouter.post("/create", isLoggedIn, (req, res, next) => {
-  const { title } = req.body;
-  Post.create({ title })
+postRouter.post(
+  "/create",
+  parser.single("image"),
+  isLoggedIn,
+  (req, res, next) => {
+    const { title, description } = req.body;
+    const { _id } = req.session.currentUser;
+    const imageUrl = req.file.secure_url;
+    const newPost = { image: imageUrl, title, description, user: _id };
+    Post.create(newPost).then((post) => {
+      const { _id } = req.session.currentUser;
+      User.findByIdAndUpdate(_id, { $push: { posts: post } }, { new: true })
+        .then((user) => {
+          console.log("USER", user);
+          res.redirect("/posts");
+        })
+        .catch((err) => console.error(err));
+    });
+  }
+);
+
+postRouter.get("/details/:id", isLoggedIn, (req, res, next) => {
+  const postId = req.params.id;
+  console.log("postId", postId);
+  Post.findById(postId)
     .then((post) => {
-      console.log("post", post);
-      res.redirect("/posts");
+      const props = { post: post };
+      console.log(post);
+      res.render("Details", props);
     })
     .catch((err) => console.log(err));
 });
 
-
-
-postRouter.get('/details/:id', isLoggedIn, (req,res,next) => {
-  const postId = req.params.id;
-  console.log('postId', postId);
-  Post.findById(postId)
-    .then((post) =>{
-      const props = {post: post};
-      console.log(post)
-      res.render('Details', props)
-    })
-    .catch((err) => console.log(err));
-})
-
-
-postRouter.get('/user/:id', isLoggedIn, (req,res,next)=> {
+postRouter.get("/user/:id", isLoggedIn, (req, res, next) => {
   const userId = req.params.id;
   User.findById(userId)
-    .populate('posts')
+    .populate("posts")
     .then((user) => {
       const props = { user: user };
       res.render("UserPosts", props);
     })
     .catch((err) => console.log(err));
 });
-
 
 module.exports = postRouter;
