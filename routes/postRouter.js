@@ -30,6 +30,7 @@ res.render('CreatePost')
 //POST /posts/create
 
 postRouter.get('/create', isLoggedIn, (req,res,next) => {
+
  
 })
 
