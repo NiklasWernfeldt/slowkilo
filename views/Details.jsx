@@ -4,11 +4,13 @@ const Layout = require("./Layout");
 function Details(props) {
     return (
       <Layout>
+        <main>
         <div>
-        <img src={props.post.image} alt="feed-image" /> 
-        <p>{props.post.title}</p>
+        <h1 className="header">{props.post.title}</h1>
+        <img className="details-img" src={props.post.image} alt="feed-image" /> 
         <p>{props.post.description}</p>
         </div>
+        </main>
       </Layout>
     );
   }

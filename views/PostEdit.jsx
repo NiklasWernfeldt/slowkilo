@@ -4,13 +4,14 @@ const Layout = require("./Layout");
 function PostEdit(props) {
     return (
       <Layout>
+      <main className="main">
       <div>
-        <h1>Edit Post Page</h1>
+        <h1 className="header">Edit Your Post</h1>
         <div>
 
-          <img src={`${props.post.image}`} alt="post image"/>
-          <p>{props.post.title}</p>
-          <p>{props.post.description}</p>
+          <img className="feed-img" src={`${props.post.image}`} alt="post image"/>
+          <p>Title: {props.post.title}</p>
+          <p>Description:{props.post.description}</p>
 
         </div>
         <form action={`/posts/edit/${props.post._id}`} method="post" encType="multipart/form-data">
@@ -20,6 +21,7 @@ function PostEdit(props) {
             <button type="submit">Edit Post</button> <button type="button"><a href={`/posts/delete/${props.post._id}`}> Delete Post</a></button>
         </form>
       </div>
+      </main>
       </Layout>
     );
   }
