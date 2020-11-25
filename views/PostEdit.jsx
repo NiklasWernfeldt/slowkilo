@@ -4,8 +4,17 @@ const Layout = require("./Layout");
 function PostEdit(props) {
     return (
       <Layout>
-         <div>
+      <div>
         <h1>Edit Post Page</h1>
+        <div>
+          <img src={`${props.post.image}`} alt="post image"/>
+          <p>{props.post.title}</p>
+          <p>{props.post.description}</p>
+
+
+
+
+        </div>
         <form action={`/posts/edit/${props.post._id}`} method="post" encType="multipart/form-data">
             <input type='file' name='image' placeholder="Upload an image"/>
             <input name="title" type="text" placeholder="Enter a title" />
