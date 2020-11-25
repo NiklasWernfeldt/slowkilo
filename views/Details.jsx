@@ -6,6 +6,8 @@ function Details(props) {
       <Layout>
         <div>
         <img src={props.post.image} alt="feed-image" /> 
+        <p>{props.post.title}</p>
+        <p>{props.post.description}</p>
         </div>
       </Layout>
     );

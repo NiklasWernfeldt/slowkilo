@@ -24,7 +24,7 @@ authRouter.post("/signup", (req, res, next) => {
     return;
   }
 
-  if (username !== repeatPassword) {
+  if (password !== repeatPassword) {
     const props = { errorMessage: "passwords not matching" };
 
     res.render("Signup", props);
