@@ -7,10 +7,12 @@ function Feed(props) {
     <Layout>
       <div>
         <h1>Heloo</h1>
-        <a href={`/posts/user/${props.post.user}`}><p>User</p></a>
         {props.post.map((post, i) => {
           return (
             <div key={i}>
+              <a href={`/posts/user/${props.post[i].user._id}`}>
+                <p>{props.post[i].user.username}</p>
+              </a>
               <img src={post.image} alt="feed-image" />
               <h3>{post.title}</h3>
               <p>{post.description}</p>

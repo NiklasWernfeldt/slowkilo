@@ -4,21 +4,17 @@ const User = require("./../models/User.model");
 const Post = require("./../models/Post.model");
 const isLoggedIn = require("../utils/isLoggedIn");
 
-
 //GET /feed
 
-feedRouter.get("/",  isLoggedIn, function (req, res, next) {
-  Post.find().populate('user')
-   .then((post) => {
-    const props = { post: post };
-    res.render("Feed", props);
-   })
-  .catch((err) => console.log(err))
-  });
-
-
-    
-
-
+feedRouter.get("/", isLoggedIn, function (req, res, next) {
+  Post.find()
+    .populate("user")
+    .then((post) => {
+      const props = { post: post };
+      console.log("props.post[0].user", props.post[0].user);
+      res.render("Feed", props);
+    })
+    .catch((err) => console.log(err));
+});
 
 module.exports = feedRouter;
