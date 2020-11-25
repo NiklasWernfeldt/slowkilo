@@ -67,7 +67,6 @@ postRouter.post(
   isLoggedIn,
   (req, res, next) => {
     const postId = req.params.id;
-    console.log(postId);
     const imageUrl = req.file.secure_url;
     const { title, description } = req.body;
 
