@@ -14,7 +14,7 @@ authRouter.get("/signup", (req, res, next) => {
   res.render("Signup");
 });
 //
-authRouter.post("/signup", parser.single("profileImg"), (req, res, next) => {
+authRouter.post("/signup", parser.single("profileimg"), (req, res, next) => {
   const imageUrl = req.file.secure_url;
   const { username, password, repeatPassword } = req.body;
 

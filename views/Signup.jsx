@@ -11,7 +11,7 @@ function Signup(props) {
 
       <body>
         <form action="/auth/signup" method="post" encType="multipart/form-data">
-          <input type="file" name="profileImg" />
+          <input type="file" name="profileimg" />
           <input
             name="username"
             type="text"
