@@ -14,9 +14,9 @@ authRouter.get("/signup", (req, res, next) => {
   res.render("Signup");
 });
 //
-authRouter.post("/signup", parser.single("profileimg"), (req, res, next) => {
-  const imageUrl = req.file.secure_url;
+authRouter.post("/signup", parser.single("profileImg"), (req, res, next) => {
   const { username, password, repeatPassword } = req.body;
+  const updateQuery = { username, password, repeatPassword };
 
   if (username === "" || password === "") {
     const props = { errorMessage: "Insert username and password" };
@@ -31,6 +31,12 @@ authRouter.post("/signup", parser.single("profileimg"), (req, res, next) => {
     res.render("Signup", props);
     return;
   }
+  if (req.file) {
+    updateQuery.userImage = req.file.secure_url;
+  } else {
+    updateQuery.userImage =
+      "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
+  }
 
   User.findOne({ username })
     .then((user) => {
@@ -43,8 +49,9 @@ authRouter.post("/signup", parser.single("profileimg"), (req, res, next) => {
       }
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
-      //
-      User.create({ username, password: hashedPassword, userImage: imageUrl })
+      updateQuery.password = hashedPassword;
+
+      User.create(updateQuery)
         .then((createdUser) => {
           req.session.currentUser = createdUser;
           res.redirect("/feed");
