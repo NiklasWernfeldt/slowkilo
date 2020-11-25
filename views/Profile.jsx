@@ -1,21 +1,19 @@
-const React = require('react');
-const Layout = require ('./Layout');
+const React = require("react");
+const Layout = require("./Layout");
 
 function Profile(props) {
-    return (
-        <Layout>
-            
-            <div>
-                <h3>{props.user.username}</h3>
-                <p>{props.user.email}</p>
-                <p><a href="/profile/edit">Edit profile</a></p>
-            </div>
-    
-
-            
-        </Layout>
-    )
+  return (
+    <Layout>
+      <div>
+        <img src={props.user.userImage} />
+        <h3>{props.user.username}</h3>
+        <p>{props.user.email}</p>
+        <p>
+          <a href="/profile/edit">Edit profile</a>
+        </p>
+      </div>
+    </Layout>
+  );
 }
-
 
 module.exports = Profile;
