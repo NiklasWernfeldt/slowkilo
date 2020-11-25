@@ -67,12 +67,15 @@ postRouter.post(
   isLoggedIn,
   (req, res, next) => {
     const postId = req.params.id;
-    const imageUrl = req.file.secure_url;
+    //const imageUrl = req.file.secure_url;
     const { title, description } = req.body;
-
+  const  updateQuery = {title, description}  //Work around because we can't defaultValue images
+  if (req.file) {
+    updateQuery.image = req.file.secure_url;
+  }
     Post.findByIdAndUpdate(
       postId,
-      { image: imageUrl, title, description },
+       updateQuery,
       { new: true }
     )
       .then((post) => res.redirect("/posts"))

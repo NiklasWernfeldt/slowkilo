@@ -36,12 +36,15 @@ profileRouter.post(
   isLoggedIn,
   parser.single("changeProfileImage"),
   function (req, res, next) {
-    const imageUrl = req.file.secure_url;
     const { _id } = req.session.currentUser;
     const { username, email } = req.body;
+    const updateQuery = {username, email};
+    if (req.file) {
+      updateQuery.userImage = req.file.secure_url;
+    }
     User.findByIdAndUpdate(
       _id,
-      { username, email, userImage: imageUrl },
+       updateQuery,
       { new: true }
     )
       .then((user) => res.redirect("/profile"))
