@@ -1,5 +1,6 @@
 const express = require("express");
 const authRouter = express.Router();
+const parser = require("./../config/cloudinary");
 
 const User = require("./../models/User.model");
 const isLoggedIn = require("../utils/isLoggedIn");
@@ -12,9 +13,9 @@ const saltRounds = 10;
 authRouter.get("/signup", (req, res, next) => {
   res.render("Signup");
 });
-
-authRouter.post("/signup", (req, res, next) => {
-  console.log(req.body);
+//
+authRouter.post("/signup", parser.single("profileImg"), (req, res, next) => {
+  const imageUrl = req.file.secure_url;
   const { username, password, repeatPassword } = req.body;
 
   if (username === "" || password === "") {
@@ -24,7 +25,7 @@ authRouter.post("/signup", (req, res, next) => {
     return;
   }
 
-  if (username !== repeatPassword) {
+  if (password !== repeatPassword) {
     const props = { errorMessage: "passwords not matching" };
 
     res.render("Signup", props);
@@ -42,8 +43,8 @@ authRouter.post("/signup", (req, res, next) => {
       }
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
-
-      User.create({ username, password: hashedPassword })
+      //
+      User.create({ username, password: hashedPassword, userImage: imageUrl })
         .then((createdUser) => {
           req.session.currentUser = createdUser;
           res.redirect("/feed");

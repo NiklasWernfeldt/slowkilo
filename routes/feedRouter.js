@@ -8,6 +8,7 @@ const isLoggedIn = require("../utils/isLoggedIn");
 
 feedRouter.get("/", isLoggedIn, function (req, res, next) {
   Post.find()
+    .sort({ created_at: "desc" })
     .populate("user")
     .then((post) => {
       const props = { post: post };
