@@ -5,47 +5,57 @@ const isLoggedIn = require("./../utils/isLoggedIn");
 const session = require("express-session");
 const User = require("./../models/User.model");
 const Post = require("./../models/Post.model");
-
+const parser = require("./../config/cloudinary");
 
 //GET /profile
 
-profileRouter.get('/', isLoggedIn, function (req,res,next) {
-    const { _id } = req.session.currentUser;
+profileRouter.get("/", isLoggedIn, function (req, res, next) {
+  const { _id } = req.session.currentUser;
   User.findById(_id)
     .then((user) => {
-       const props = { user: user };
-       console.log(props)
-       res.render("Profile", props);
-     })
-     .catch((err) => console.log(err));
- });
+      const props = { user: user };
+      console.log(props);
+      res.render("Profile", props);
+    })
+    .catch((err) => console.log(err));
+});
 
+profileRouter.get("/edit", isLoggedIn, function (req, res, next) {
+  const { _id } = req.session.currentUser;
+  User.findById(_id)
+    .then((user) => {
+      const props = { user: user };
+      console.log(props);
+      res.render("EditProfile", props);
+    })
+    .catch((err) => console.log(err));
+});
 
-profileRouter.get('/edit', isLoggedIn, function (req,res,next){
+profileRouter.post(
+  "/edit",
+  isLoggedIn,
+  parser.single("changeProfileImage"),
+  function (req, res, next) {
+    const imageUrl = req.file.secure_url;
     const { _id } = req.session.currentUser;
-    User.findById(_id)
-      .then((user) => {
-         const props = { user: user };
-         console.log(props)
-         res.render("EditProfile", props);
-       })
-       .catch((err) => console.log(err));
-   });
+    const { username, email } = req.body;
+    User.findByIdAndUpdate(
+      _id,
+      { username, email, userImage: imageUrl },
+      { new: true }
+    )
+      .then((user) => res.redirect("/profile"))
+      .catch((err) => console.error(err));
+  }
+);
 
-profileRouter.post('/edit', isLoggedIn, function(req,res,next) {
-    const { _id } = req.session.currentUser;
-    const {username, email, password} = req.body
-    User.findByIdAndUpdate(_id,
-        {username, email, password},
-        {new : true}
-  )
-  .then((user) => res.redirect('/auth/login'))
-  .catch((err) => console.error(err))
-  })
-
-
-
-
-
+profileRouter.get("/delete", isLoggedIn, (req, res, next) => {
+  const { _id } = req.session.currentUser;
+  User.findByIdAndDelete(_id)
+    .then((user) => {
+      res.redirect("/");
+    })
+    .catch((err) => console.log(err));
+});
 
 module.exports = profileRouter;

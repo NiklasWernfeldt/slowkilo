@@ -10,6 +10,7 @@ function Profile(props) {
         <p>{props.user.email}</p>
         <p>
           <a href="/profile/edit">Edit profile</a>
+          <a href="/profile/delete">Delete profile</a>
         </p>
       </div>
     </Layout>
