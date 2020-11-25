@@ -1,7 +1,7 @@
 const React = require("react");
 
-function Signup (props) {
-return (
+function Signup(props) {
+  return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
@@ -10,19 +10,28 @@ return (
       </head>
 
       <body>
-        
         <form action="/auth/signup" method="post">
-            <input name="username" type="text" placeholder="Enter your username" />
-            <input name="password" type="password" placeholder="Enter your password"/>
-            <input name="repeat-password" type="password" placeholder="Repeat your password"/>
-            <button type="submit">Sign up</button>
+          <input
+            name="username"
+            type="text"
+            placeholder="Enter your username"
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Enter your password"
+          />
+          <input
+            name="repeatPassword"
+            type="password"
+            placeholder="Repeat your password"
+          />
+          <button type="submit">Sign up</button>
         </form>
-        </body>
-
+        <h1>{props.errorMessage}</h1>
+      </body>
     </html>
-)
-
-
+  );
 }
 
 module.exports = Signup;

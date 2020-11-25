@@ -11,7 +11,6 @@ feedRouter.get("/", isLoggedIn, function (req, res, next) {
     .populate("user")
     .then((post) => {
       const props = { post: post };
-      console.log("props.post[0].user", props.post[0].user);
       res.render("Feed", props);
     })
     .catch((err) => console.log(err));
