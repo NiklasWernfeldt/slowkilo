@@ -10,26 +10,46 @@ function Signup(props) {
       </head>
 
       <body>
-        <form action="/auth/signup" method="post" encType="multipart/form-data">
-          <input type="file" name="profileimg" />
-          <input
-            name="username"
-            type="text"
-            placeholder="Enter your username"
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="Enter your password"
-          />
-          <input
-            name="repeatPassword"
-            type="password"
-            placeholder="Repeat your password"
-          />
-          <button type="submit">Sign up</button>
-        </form>
-        <h1>{props.errorMessage}</h1>
+        <main className="home">
+          <div className="home-div">
+            <h1 className="home-header">Sign up</h1>
+            <form
+              className="auth-form"
+              action="/auth/signup"
+              method="post"
+              encType="multipart/form-data"
+            >
+              <label for="profile-input">Choose you profile image</label>
+              <input
+                id="profile-input"
+                className="auth-input"
+                type="file"
+                name="profileImg"
+              />
+              <input
+                className="auth-input"
+                name="username"
+                type="text"
+                placeholder="Enter your username"
+              />
+
+              <input
+                className="auth-input"
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+              />
+              <input
+                className="auth-input"
+                name="repeatPassword"
+                type="password"
+                placeholder="Repeat your password"
+              />
+              <button type="submit">Sign up</button>
+            </form>
+            <h1>{props.errorMessage}</h1>
+          </div>
+        </main>
       </body>
     </html>
   );

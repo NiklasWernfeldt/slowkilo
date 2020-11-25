@@ -10,20 +10,24 @@ function Login(props) {
       </head>
 
       <body>
-        <form action="/auth/login" method="post">
-          <input
-            name="username"
-            type="text"
-            placeholder="Enter your username"
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="Enter your password"
-          />
-          <button type="submit">Login</button>
-        </form>
-        {props.errorMessage ? <h3>{props.errorMessage}</h3> : ""}
+        <main className="home">
+          <div className="home-div">
+            <form action="/auth/login" method="post">
+              <input
+                name="username"
+                type="text"
+                placeholder="Enter your username"
+              />
+              <input
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+              />
+              <button type="submit">Login</button>
+            </form>
+            {props.errorMessage ? <h3>{props.errorMessage}</h3> : ""}
+          </div>
+        </main>
       </body>
     </html>
   );
