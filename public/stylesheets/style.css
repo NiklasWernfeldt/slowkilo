@@ -1,20 +1,65 @@
+
+:root{--grey: #8E8D8A;
+      --pink: #E98074;
+      --red: #E85A4F;
+      --eggwhite: #EAE7DC;
+      --lightbrown: #D8C3A5;}
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-image: url("/images/Background-home.jpg");
-  
 }
 
-a {
-  color: #00B7FF;
+.home {
+display: flex;
+justify-content: center;
+align-items: center;
+background-image: url("/images/Background-home.jpg");
+width:100vw;
+height:100vh;
 }
+
+.home-header {
+color: var(--pink);
+font-size: 5rem;
+}
+
+.home-div {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-button-div {
+  display:flex;
+}
+
+.home-button {
+font-size: 2rem;
+width: 8rem;
+height: 4rem;
+background-color: var(--eggwhite);
+color: var(--lightbrown);
+}
+
+.home-button a {
+text-decoration: none;
+}
+
+.auth-form {
+  display:flex;
+  flex-direction: column;
+}
+
+.auth-input {
+  font-size: 1.5rem;
+  width: 30rem;
+  color: var(--lightbrown);
+}
+
 
 .navbar {
-  background-color: grey;
+  background-color: var(--grey);
   overflow: hidden;
   position: fixed;
   bottom: 0;

@@ -11,13 +11,17 @@ function Home() {
         <link rel="stylesheet" href="/stylesheets/style.css" />
       </head>
     <body>
-      <div>
+      <main className= "home">
+      <div className="home-div">
     
-      <h1>SlowKilo</h1>
-      <button type="button"><a href="/auth/signup">Sign up</a></button>
-      <button type="button"><a href="/auth/login">Login</a></button>
+      <h1 className="home-header">SlowKilo</h1>
+      <div className="home-button-div">
+      <button className="home-button" type="button"><a href="/auth/signup">Sign up</a></button>
+      <button className="home-button" type="button"><a href="/auth/login">Login</a></button>
+      </div>
 
       </div> 
+      </main>
    </body>
   </html>
   );
