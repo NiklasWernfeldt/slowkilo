@@ -8,7 +8,14 @@ function Posts(props) {
 
       <div>
         <h1>POSTS FROM USER </h1>
-        <button><a href="/posts/create">New post</a></button>
+        {props.user.posts.length === 0 ? (
+          <div>
+            <p>You haven't posted anything yet.</p>
+            <button><a href="/posts/create">New post</a></button> 
+          </div>
+          ) : (
+        <button><a href="/posts/create">New post</a></button>)}
+
         {props.user.posts.map((post, i) => {
           return (
             <div key={i}>
