@@ -1,0 +1,29 @@
+:root{--grey: #8E8D8A;
+    --pink: #E98074;
+    --red: #E85A4F;
+    --eggwhite: #EAE7DC;
+    --lightbrown: #D8C3A5;}
+
+
+
+.description-box {
+    width: 20rem;
+    height: 5rem;
+    }
+
+
+.edit-div {
+    display:flex;
+    justify-content: center;
+    padding-top:3px;
+}    
+
+.edit-buttons {
+    width: 8rem;
+    
+}
+
+.edit-buttons a {
+    text-decoration: none;
+    color: black;
+}

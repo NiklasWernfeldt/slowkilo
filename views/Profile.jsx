@@ -3,16 +3,19 @@ const Layout = require("./Layout");
 
 function Profile(props) {
   return (
-    <Layout>
+    <Layout title="Profile" pageCSS="stylesheets/profile.css">
+      <main className="main">
       <div>
-        <img src={props.user.userImage} />
-        <h3>{props.user.username}</h3>
-        <p>{props.user.email}</p>
+      <h1 className="header">My Profile</h1>
+        <p>Profile Image</p><img className="profile-img" src={props.user.userImage} />
+        <p>Username:{props.user.username}</p>
+        <p>Email: {props.user.email}</p>
         <p>
-          <a href="/profile/edit">Edit profile</a>
-          <a href="/profile/delete">Delete profile</a>
+          <button className="edit-buttons"><a href="/profile/edit">Edit profile</a></button>
+          <button className="edit-buttons"><a href="/profile/delete">Delete profile</a></button>
         </p>
       </div>
+      </main>
     </Layout>
   );
 }

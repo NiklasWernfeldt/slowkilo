@@ -119,19 +119,6 @@ color: var(--pink);
   text-align: center;
 }
 
-.new-edit-button {
-font-size: 0.8rem;
-width: 5rem;
-height: 1.5rem;
-background-color: var(--eggwhite);
-color: var(--lightbrown);
-}
-
-.new-edit-button a {
-text-decoration: none;
-color: var(--grey);
-}
-
 .feed-img {
   width: 20rem;
 }

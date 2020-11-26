@@ -3,9 +3,12 @@ const Layout = require("./Layout");
 
 function EditProfile(props) {
   return (
-    <Layout>
+    <Layout title="Edit Profile" pageCSS="/stylesheets/edit-profile">
+      <main className="main">
+      <div>
+      <h1 className="header">Edit Profile</h1>
       <form action="/profile/edit" method="post" encType="multipart/form-data">
-        <label> Username - {props.user.username} </label>
+        <label>Username </label>
         <input
           name="username"
           type="text"
@@ -13,7 +16,7 @@ function EditProfile(props) {
           defaultValue={props.user.username}
         />
         <br />
-        <label>Email - {props.user.email}</label>
+        <label>Email</label>
         <input
           name="email"
           type="text"
@@ -27,6 +30,8 @@ function EditProfile(props) {
         <br />
         <button type="submit">Edit profile</button>
       </form>
+      </div>
+      </main>
     </Layout>
   );
 }

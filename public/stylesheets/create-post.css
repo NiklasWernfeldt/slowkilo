@@ -1,0 +1,21 @@
+:root{--grey: #8E8D8A;
+      --pink: #E98074;
+      --red: #E85A4F;
+      --eggwhite: #EAE7DC;
+      --lightbrown: #D8C3A5;}
+
+.form-div {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form {
+      display: inline-block;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+}
+
+
