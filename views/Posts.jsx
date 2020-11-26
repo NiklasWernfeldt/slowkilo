@@ -5,7 +5,7 @@ const Layout = require("./Layout");
 function Posts(props) {
   console.log("props", props);
   return (
-    <Layout>
+    <Layout title="My Posts" pageCSS="/stylesheets/posts.css">
       <main className="main">
         <div>
           <h1 className="header">My Posts</h1>
