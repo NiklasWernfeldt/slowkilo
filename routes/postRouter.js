@@ -69,15 +69,11 @@ postRouter.post(
     const postId = req.params.id;
     //const imageUrl = req.file.secure_url;
     const { title, description } = req.body;
-  const  updateQuery = {title, description}  //Work around because we can't defaultValue images
-  if (req.file) {
-    updateQuery.image = req.file.secure_url;
-  }
-    Post.findByIdAndUpdate(
-      postId,
-       updateQuery,
-      { new: true }
-    )
+    const updateQuery = { title, description }; //Work around because we can't defaultValue images
+    if (req.file) {
+      updateQuery.image = req.file.secure_url;
+    }
+    Post.findByIdAndUpdate(postId, updateQuery, { new: true })
       .then((post) => res.redirect("/posts"))
       .catch((error) => console.error(error));
   }
@@ -109,7 +105,6 @@ postRouter.get("/details/:id", isLoggedIn, (req, res, next) => {
 
 postRouter.get("/user/:id", isLoggedIn, (req, res, next) => {
   const userId = req.params.id;
-  console.log(userId);
   User.findById(userId)
     .populate("posts")
     .then((user) => {

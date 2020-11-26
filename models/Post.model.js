@@ -8,6 +8,7 @@ const postSchema = new Schema(
     user: { type: Schema.Types.ObjectId, ref: "User" },
     description: String,
     date: Date,
+    comments: [],
   },
   {
     timestamps: {
