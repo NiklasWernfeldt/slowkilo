@@ -11,7 +11,7 @@ commentRouter.post("/create/:id", isLoggedIn, (req, res, next) => {
     postId,
     { $push: { comments: comment } },
     { new: true }
-  ) // ({ comments: [comment] })
+  )
     .then((comment) => {
       res.redirect("/feed");
     })
