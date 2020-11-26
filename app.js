@@ -13,6 +13,8 @@ const authRouter = require("./routes/authRouter");
 const feedRouter = require("./routes/feedRouter");
 const postRouter = require("./routes/postRouter");
 const profileRouter = require("./routes/profileRouter");
+const commentRouter = require("./routes/commentRouter");
+const searchRouter = require("./routes/searchRouter");
 
 // const DB_NAME = 'mockSlowkilo';
 
@@ -65,6 +67,8 @@ app.use("/auth", authRouter);
 app.use("/feed", feedRouter);
 app.use("/posts", postRouter);
 app.use("/profile", profileRouter);
+app.use("/comment", commentRouter);
+app.use("/search", searchRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {

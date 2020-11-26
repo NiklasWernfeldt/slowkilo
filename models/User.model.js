@@ -8,7 +8,7 @@ const userSchema = new Schema({
   posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
   email: String,
   password: String,
-}); 
+});
 
 const User = mongoose.model("User", userSchema);
 
