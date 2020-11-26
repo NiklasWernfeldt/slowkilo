@@ -126,3 +126,8 @@ color: var(--pink);
 .details-img {
   width: 100%;
 }
+
+.following {
+  display:flex;
+  justify-content: space-between;
+}

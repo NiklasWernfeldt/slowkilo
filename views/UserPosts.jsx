@@ -11,6 +11,9 @@ function UserPosts(props) {
           <form action={`/follow/add/${props.user._id}`} method="get">
             <button type="submit">Follow</button>
           </form>
+          <form action={`/follow/remove/${props.user._id}`} method="get">
+            <button type="submit">Unfollow</button>
+          </form>
           {props.user.posts.map((post, i) => {
             return (
               <div key={i}>
