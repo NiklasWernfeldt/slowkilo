@@ -15,6 +15,7 @@ const postRouter = require("./routes/postRouter");
 const profileRouter = require("./routes/profileRouter");
 const commentRouter = require("./routes/commentRouter");
 const searchRouter = require("./routes/searchRouter");
+const followRouter = require('./routes/followRouter');
 
 // const DB_NAME = 'mockSlowkilo';
 
@@ -69,6 +70,7 @@ app.use("/posts", postRouter);
 app.use("/profile", profileRouter);
 app.use("/comment", commentRouter);
 app.use("/search", searchRouter);
+app.use('/follow', followRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {

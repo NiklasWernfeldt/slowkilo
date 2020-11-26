@@ -8,6 +8,9 @@ function UserPosts(props) {
       <main className="main">
         <div>
           <h1 className="header">{props.user.username}</h1>
+          <form action={`/follow/add/${props.user._id}`} method="get">
+            <button type="submit">Follow</button>
+          </form>
           {props.user.posts.map((post, i) => {
             return (
               <div key={i}>
