@@ -7,13 +7,18 @@ const isLoggedIn = require("../utils/isLoggedIn");
 //GET /feed
 
 feedRouter.get("/", isLoggedIn, function (req, res, next) {
+  const currentUserId = req.session.currentUser._id;
   Post.find()
     .sort({ created_at: "desc" })
     .populate("user comments.author")
     .then((post) => {
-      console.log(post[0].comments);
-      const props = { post: post };
-      res.render("Feed", props);
+      User.findById(currentUserId)
+        .populate("following")
+        .then((user) => {
+          const props = { post: post, user: user };
+          res.render("Feed", props);
+        })
+        .catch((err) => console.log(err));
     })
     .catch((err) => console.log(err));
 });

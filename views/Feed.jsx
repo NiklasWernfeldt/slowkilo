@@ -1,12 +1,15 @@
 const React = require("react");
 const Layout = require("./Layout");
 const SearchBar = require("./components/SearchBar");
+const Following = require("./components/Following");
 
 function Feed(props) {
+  console.log("props.user", props.user);
   return (
     <Layout>
       <main className="main">
         <div>
+          <Following user={props.user} />
           <SearchBar />
           <h1 className="header">Feed</h1>
           {props.post.map((post, i) => {
