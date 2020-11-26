@@ -6,7 +6,7 @@ const posts = [
     user: "", //{ type: mongoose.SchemaTypes.ObjectId, ref: "User" }
     description: "Another day at the office with my colleagues.",
     date: "2020-10-25",
-    comments: ["you are a shitty photographer", "crap pic", "noob"],
+    comments: [],
   },
   {
     image:
@@ -15,7 +15,7 @@ const posts = [
     user: "",
     description: "Human's best friends",
     date: "2020-10-26",
-    comments: ["dogs and cats"],
+    comments: [],
   },
   {
     image:
@@ -24,7 +24,7 @@ const posts = [
     user: "",
     description: "",
     date: "2020-10-27",
-    comments: ["no comments needed"],
+    comments: [],
   },
   {
     image:
@@ -33,7 +33,7 @@ const posts = [
     user: "",
     description: "",
     date: "2020-10-28",
-    comments: ["good light bro", "good picture", "excellente!"],
+    comments: [],
   },
   {
     image:
@@ -42,7 +42,7 @@ const posts = [
     user: "",
     description: "Amazing night with my guys",
     date: "2020-10-29",
-    comments: ["you got skills", "nice one", "pro"],
+    comments: [],
   },
 ];
 

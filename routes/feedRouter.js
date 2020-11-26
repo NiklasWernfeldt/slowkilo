@@ -9,8 +9,9 @@ const isLoggedIn = require("../utils/isLoggedIn");
 feedRouter.get("/", isLoggedIn, function (req, res, next) {
   Post.find()
     .sort({ created_at: "desc" })
-    .populate("user")
+    .populate("user comments.author")
     .then((post) => {
+      console.log(post[0].comments);
       const props = { post: post };
       res.render("Feed", props);
     })

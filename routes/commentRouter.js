@@ -5,11 +5,16 @@ const Post = require("./../models/Post.model");
 
 //commentRouter.post
 commentRouter.post("/create/:id", isLoggedIn, (req, res, next) => {
+  const userId = req.session.currentUser._id;
   const postId = req.params.id;
   const { comment } = req.body;
+  const newComment = {
+    comment: comment,
+    author: userId,
+  };
   Post.findByIdAndUpdate(
     postId,
-    { $push: { comments: comment } },
+    { $push: { comments: newComment } },
     { new: true }
   )
     .then((comment) => {

@@ -21,10 +21,11 @@ function Feed(props) {
                 >
                   <p>{props.post[i].user.username}</p>
                 </a>
-                {post.comments.map((comment, i) => {
+                {post.comments.map((commentObj, i) => {
                   return (
                     <div key={i}>
-                      <p>{comment}</p>
+                      <span>{commentObj.author.username} - </span>
+                      <p>{commentObj.comment}</p>
                     </div>
                   );
                 })}
