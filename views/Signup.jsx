@@ -45,9 +45,10 @@ function Signup(props) {
                 type="password"
                 placeholder="Repeat your password"
               />
-              <button type="submit">Sign up</button>
+              <br/>
+              <button className="auth-button" type="submit">Sign up</button>
             </form>
-            <h1>{props.errorMessage}</h1>
+            <p className="auth-message">{props.errorMessage}</p>
           </div>
         </main>
       </body>

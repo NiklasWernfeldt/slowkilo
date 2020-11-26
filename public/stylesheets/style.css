@@ -7,6 +7,9 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  background-color: var(--eggwhite);
+  
 }
 
 .home {
@@ -49,14 +52,24 @@ text-decoration: none;
 .auth-form {
   display:flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .auth-input {
   font-size: 1.5rem;
   width: 30rem;
-  color: var(--lightbrown);
+  color: var(--grey);
 }
 
+.auth-button {
+  font-size: 1.5rem;
+  width: 15rem;
+}
+
+.auth-message {
+  font-size: 1.3rem;
+  color: var(--red);
+}
 
 .navbar {
   background-color: var(--grey);
@@ -64,17 +77,65 @@ text-decoration: none;
   position: fixed;
   bottom: 0;
   width: 100%;
-
 }
 
 .navbar a {
   float: left;
   display: block;
   text-align: center;
-  padding: 14px 16px;
+  color: var(--eggwhite);
+  padding: 0.8rem 1.7rem;
+  font-size: 0.8rem;
   text-decoration: none;
 }
 
-img {
-  width: 300px;
+.main {
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: var(--eggwhite);
+}
+
+.header {
+color: var(--pink);
+text-align: center;
+font-size: 2rem;
+}
+
+.username{
+text-decoration: none;
+color: var(--grey);
+}
+
+.username:hover {
+color: var(--pink);
+}
+
+.username:active {
+color: var(--pink);
+}
+
+.user-myposts {
+  text-align: center;
+}
+
+.new-edit-button {
+font-size: 0.8rem;
+width: 5rem;
+height: 1.5rem;
+background-color: var(--eggwhite);
+color: var(--lightbrown);
+}
+
+.new-edit-button a {
+text-decoration: none;
+color: var(--grey);
+}
+
+.feed-img {
+  width: 20rem;
+}
+
+.details-img {
+  width: 100%;
 }
