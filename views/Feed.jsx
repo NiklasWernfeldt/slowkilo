@@ -10,7 +10,7 @@ function Feed(props) {
       <main className="main">
         <div>
           <Following user={props.user} />
-          <br/>
+          <br />
           <SearchBar />
           <h1 className="header">Feed</h1>
           {props.post.map((post, i) => {
