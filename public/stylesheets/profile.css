@@ -1,24 +1,40 @@
 .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--eggwhite);
-    width: 100vw;
-    height: 100vh;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--eggwhite);
+  width: 100vw;
+  height: 100vh;
+}
 
-
+.profile-div {
+  width: 20%;
+}
 
 .profile-img {
-    width: 10rem;
-    height: 6rem;
+  width: 10rem;
+  height: 6rem;
 }
 
-.edit-buttons {
-    width: 8rem; 
+.profile-links-div {
+  width: 100%;
 }
 
-.edit-buttons a {
-    text-decoration: none;
-    color: black;
+.profile-icon {
+  width: 30%;
+  display: block;
+}
+
+.profile-links-div {
+  display: flex;
+}
+
+.profile-links-deep-div {
+  display: flex;
+}
+
+.profile-link-text {
+  text-decoration: none;
+  color: var(--pink);
+  font-size: 8px;
 }

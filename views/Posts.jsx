@@ -7,7 +7,7 @@ function Posts(props) {
   return (
     <Layout title="My Posts" pageCSS="/stylesheets/posts.css">
       <main className="main">
-        <div>
+        <div className="my-posts-div">
           <h1 className="header">My Posts</h1>
           <p className="user-myposts">{props.user.username}</p>
           {props.user.posts.length === 0 ? (

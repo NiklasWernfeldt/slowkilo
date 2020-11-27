@@ -1,31 +1,35 @@
-:root{--grey: #8E8D8A;
-    --pink: #E98074;
-    --red: #E85A4F;
-    --eggwhite: #EAE7DC;
-    --lightbrown: #D8C3A5;}
-
+:root {
+  --grey: #8e8d8a;
+  --pink: #e98074;
+  --red: #e85a4f;
+  --eggwhite: #eae7dc;
+  --lightbrown: #d8c3a5;
+}
 
 .new-edit-button {
-    font-size: 0.8rem;
-    width: 5rem;
-    height: 1.5rem;
-    }
+  font-size: 0.8rem;
+  width: 5rem;
+  height: 1.5rem;
+}
 
- .new-edit-button a {
-     text-decoration: none;
-    }
+.new-edit-button a {
+  text-decoration: none;
+}
 
 .new-eddit-button a:hover {
-    color: var(--red)
+  color: var(--red);
 }
 
 .new-eddit-button a:visited {
-    color: var(--red)
+  color: var(--red);
 }
 
-
 .buttons-div {
-    display:flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-posts-div {
+  margin: 0 auto;
 }

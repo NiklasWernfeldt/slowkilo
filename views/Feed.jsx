@@ -6,16 +6,15 @@ const Following = require("./components/Following");
 function Feed(props) {
   console.log("props.user", props.user);
   return (
-    <Layout>
+    <Layout title="Feed" pageCSS="/stylesheets/feed.css">
       <main className="main">
         <div>
           <Following user={props.user} />
           <br />
           <SearchBar />
-          <h1 className="header">Feed</h1>
           {props.post.map((post, i) => {
             return (
-              <div key={i}>
+              <div className="feed-card" key={i}>
                 <a href={`/posts/details/${post._id}`}>
                   <img className="feed-img" src={post.image} alt="feed-image" />
                 </a>
@@ -33,10 +32,25 @@ function Feed(props) {
                     </div>
                   );
                 })}
-                <form action={`/comment/create/${post._id}`} method="post">
-                  <textarea name="comment" rows="1" cols="10"></textarea>
-                  <button type="submit">comment</button>
-                </form>
+                <div className="comment-div">
+                  <form
+                    class="comment-form"
+                    action={`/comment/create/${post._id}`}
+                    method="post"
+                  >
+                    <textarea
+                      className="comment-textarea"
+                      name="comment"
+                      rows="1"
+                      cols="10"
+                      placeholder="type your comment here..."
+                    ></textarea>
+                    <br />
+                    <button className="comment-btn" type="submit">
+                      comment
+                    </button>
+                  </form>
+                </div>
               </div>
             );
           })}

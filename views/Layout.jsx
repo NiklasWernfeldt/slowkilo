@@ -19,7 +19,7 @@ function Layout(props) {
       </head>
 
       <body>
-        {props.children}
+        <div class="props-children-container">{props.children}</div>
 
         <div className="navbar">
           <div class="navbar-links">

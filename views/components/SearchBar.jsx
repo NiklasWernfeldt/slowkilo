@@ -11,7 +11,7 @@ function SearchBar() {
           placeholder="search by username"
         />
         <button class="search-btn" type="submit">
-          search
+          <img class="search-img" src="/images/search.png" />
         </button>
       </form>
     </div>

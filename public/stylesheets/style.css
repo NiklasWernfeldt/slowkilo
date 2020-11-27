@@ -105,6 +105,11 @@ nav,
 section {
   display: block;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   line-height: 1;
 }
@@ -142,6 +147,10 @@ body {
   background-color: var(--eggwhite);
 }
 
+.props-children-container {
+  margin-bottom: 100px;
+}
+
 .home {
   display: flex;
   justify-content: center;
@@ -152,7 +161,7 @@ body {
 }
 
 .home-header {
-  color: var(--pink);
+  color: var(--eggwhite);
   font-size: 5rem;
 }
 
@@ -188,12 +197,24 @@ body {
 .auth-input {
   font-size: 1.5rem;
   width: 30rem;
-  color: var(--grey);
+  color: var(--eggwhite);
+  background: none;
+  border: none;
+  border-bottom: 1px solid olive;
+  text-align: center;
+  margin-bottom: 30px;
+  outline: none;
+}
+
+.auth-input.username {
+  margin-top: 30px;
 }
 
 .auth-button {
   font-size: 1.5rem;
   width: 15rem;
+  border: none;
+  color: olive;
 }
 
 .auth-message {
@@ -267,10 +288,51 @@ body {
 
 /* SEARCHBAR CSS */
 
-/*.search-div {
-  width: 30px;
+.search-div {
+  width: 100%;
 }
 
 .search-form {
+  width: 100%;
+  border: 1px solid black;
+}
 
-}*/
+.search-input {
+  width: 70%;
+  border: none;
+  text-align: center;
+  outline: none;
+}
+.search-btn {
+  width: 30%;
+  border: none;
+  background: #fff;
+  outline: none;
+}
+.search-img {
+  width: 10px;
+  border: none;
+  background: #fff;
+}
+
+/* HOME LINKS */
+
+.home-links-div {
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.home-link-imgs {
+  width: 40%;
+}
+
+.auth-links {
+  text-decoration: none;
+  color: black;
+  margin: 0 auto;
+}
+
+.auth-button {
+  outline: none;
+}

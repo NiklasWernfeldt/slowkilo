@@ -1,0 +1,10 @@
+.details-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-img {
+  width: 50%;
+  justify-self: center;
+}
