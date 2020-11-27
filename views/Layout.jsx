@@ -22,17 +22,33 @@ function Layout(props) {
         {props.children}
 
         <div className="navbar">
-          <div>
-            <a href="/feed">Feed</a>
+          <div class="navbar-links">
+            <a href="/feed">
+              {" "}
+              <img class="nav-logos" src="/images/feeding.png" />
+              <p>Feed</p>
+            </a>
           </div>
-          <div>
-            <a href="/profile">My Profile</a>
+          <div class="navbar-links">
+            <a href="/profile">
+              {" "}
+              <img class="nav-logos" src="/images/gingerbread-man.png" />
+              <p>My Profile</p>
+            </a>
           </div>
-          <div>
-            <a href="/posts">My posts</a>
+          <div class="navbar-links">
+            <a href="/posts">
+              {" "}
+              <img class="nav-logos" src="/images/cider.png" />
+              <p>My posts</p>
+            </a>
           </div>
-          <div>
-            <a href="/auth/logout">Log out</a>
+          <div class="navbar-links">
+            <a href="/auth/logout">
+              {" "}
+              <img class="nav-logos" src="/images/zombie.png" />
+              <p>Log out</p>
+            </a>
           </div>
         </div>
         <script

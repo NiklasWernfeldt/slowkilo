@@ -1,5 +1,5 @@
 const React = require("react");
-const Feed = require("./../views/Feed");
+
 function SearchBar() {
   return (
     <div class="search-div">
